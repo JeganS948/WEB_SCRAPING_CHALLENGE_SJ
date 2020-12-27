@@ -75,7 +75,7 @@ def scrape_mars_info():
     mars_table_df
 
     # Convert table to html
-    facts_table = [mars_table_df.to_html(classes='data table table-borderless', index=False, header=False, border=0)]
+    facts_table = mars_table_df.to_html(justify='left')
     mission_to_mars_data['mars_facts'] = facts_table
 
 
@@ -93,21 +93,21 @@ def scrape_mars_info():
         hemisphere = {}
     
     # Find Element on Each Loop to Avoid a Stale Element Exception
-    browser.find_by_css("a.product-item h3")[item].click()
+        browser.find_by_css("a.product-item h3")[item].click()
     
     # Find Sample Image Anchor Tag & Extract <href>
-    sample_element = browser.links.find_by_text("Sample").first
-    hemisphere["img_url"] = sample_element["href"]
+        sample_element = browser.links.find_by_text("Sample").first
+        hemisphere["img_url"] = sample_element["href"]
     
     # Get Hemisphere Title
-    hemisphere["title"] = browser.find_by_css("h2.title").text
+        hemisphere["title"] = browser.find_by_css("h2.title").text
 
     # Append Hemisphere Object to List
-    hemisphere_image_urls.append(hemisphere)
+        hemisphere_image_urls.append(hemisphere)
     
     # Navigate Backwards
-    browser.back()
-    mission_to_mars_data['mars_hemisphere'] = hemisphere_image_urls
+        browser.back()
+        mission_to_mars_data['mars_hemisphere'] = hemisphere_image_urls
 
     # Close browser after scraping
     browser.quit()

@@ -25,8 +25,8 @@
                 <div class="media">
                     <div class="media-body">
                         <h2>Latest NASA Mars News</h2>
-                        <h4 style="color:brown">{{mars.news_title}}</h2>
-                        <p style="color:cornsilk">{{mars.news_paragraph}}</p>
+                        <h4 style="color:brown">{{ mars.news_title }}</h2>
+                        <p style="color:cornsilk">{{ mars.news_paragraph }}</p>
                     </div>
                 </div>
             </div>
@@ -35,13 +35,38 @@
             <div class="row" id="mars-space-featured-images">
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <h2>JPL Mars Space Featured Images</h2>
-                        
+                    <img src="{{ mars.featured_image }}" class="img-responsive" style="max-width:100%;" alt="Mars Featured Image">
                 </div>
             </div>
         <!--Mars Facts-->
         <div class="container"></div>
+            <div class="row" id="mars_facts">
+                <div class="col-md-12">
+                    <h2>Mars Facts</h2>
+                    {{mars.mars_facts | safe}}
+                </div>
+            </div>
         <!--Mars Hemisphere-->
-        <div class="container"></div>
+        <h2 class="text-center">Mars Hemisphere</h2>
+        <div class="card-deck">
+            <hr>
+            <div class="col-md-12">
+                <div class="row" id="mars_hemispheres">
+                    <div class="col-md-6">
+                        {% for img in mars.mars_hemisphere %}
+                        <div class="col-lg-8">
+                            <div class="card text-dark bg-white" style="max-width: 100%;">
+                                <img class="card-img-top" src="{{ img.img_url }}" alt="{{ img.title }}">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{ img.title }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!--Plugins-->
     <!--Bootstrap Javascript: jQuery, Popper.js, and Bootstrap JS-->
@@ -54,9 +79,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
     crossorigin="anonymous"></script>
-
-    <!--Data Dcitionary-->
-    {{mars}}
     
     <!--Footer-->
     <footer>
