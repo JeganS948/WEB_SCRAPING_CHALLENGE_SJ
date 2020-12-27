@@ -105,12 +105,7 @@ hemisphere_image_urls.append(hemisphere)
 browser.back()
 hemisphere_image_urls
 
-# Main Web scrape
-# Initalize execution path
-def init_browser():
-executable_path = {"executable_path": "./chromedriver.exe"}
-return Browser("chrome", **executable_path), headless=False)
-
+# Main Web Scrape
 # Intialize Scrape & browser
 def scrape():
 
