@@ -106,13 +106,25 @@ browser.back()
 hemisphere_image_urls
 
 # Main Web scrape
-# Dependencies
-import pymango
-
 # Initalize execution path
 def init_browser():
 executable_path = {"executable_path": "./chromedriver.exe"}
 return Browser("chrome", **executable_path), headless=False)
 
-# Intialize Scrape
+# Intialize Scrape & browser
 def scrape():
+
+# Store data in dictionary
+mission_to_mars_data = {
+    "news_title": news_title
+    "news_paragraph": news_p
+    "featured_image": ft_image_url
+    "mars_facts": facts_table
+    "mars_hemispheres": hemisphere_image_urls
+}
+
+# Close browser after scraping
+browser.quit()
+
+# Return Results to dictionary
+return mission_to_mars_data
