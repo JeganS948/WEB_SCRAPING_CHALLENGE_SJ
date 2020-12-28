@@ -13,14 +13,14 @@
 </head>
 <body class="text-white" style="background-color:black">
     <div class="container">
-        <div class="jumbotron text-center" ></div>
+        <div class="jumbotron text-center" >
             <h1 class="display-3"><b>Mission to Mars</b></h1>
             <p><a class="btn btn-danger btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
     </div>
 
         <!--Mars News-->
-        <div class="container"></div>
+        <div class="container">
             <div class="row" id="mars-news">
                 <div class="media">
                     <div class="media-body">
@@ -30,31 +30,34 @@
                     </div>
                 </div>
             </div>
+        </div>
         <!--JPL Featured Images-->
-        <div class="container"></div>
+        <div class="container">
             <div class="row" id="mars-space-featured-images">
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <h2>JPL Mars Space Featured Images</h2>
                     <img src="{{ mars.featured_image }}" class="img-responsive" style="max-width:100%;" alt="Mars Featured Image">
                 </div>
             </div>
+        </div>
         <!--Mars Facts-->
-        <div class="container"></div>
-            <div class="row" id="mars_facts">
-                <div class="col-md-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-12">
                     <h2>Mars Facts</h2>
                     {{mars.mars_facts | safe}}
                 </div>
             </div>
+        </div>
         <!--Mars Hemisphere-->
         <h2 class="text-center">Mars Hemisphere</h2>
-        <div class="card-deck">
+        <div class="container">
             <hr>
-            <div class="col-md-12">
-                <div class="row" id="mars_hemispheres">
-                    <div class="col-md-6">
+            <div class="card-deck">
+                <div class="col-md-12">
+                    <div class="row">
                         {% for img in mars.mars_hemisphere %}
-                        <div class="col-lg-8">
+                        <div class="col-md-6">
                             <div class="card text-dark bg-white" style="max-width: 100%;">
                                 <img class="card-img-top" src="{{ img.img_url }}" alt="{{ img.title }}">
                                 <div class="card-body">
@@ -67,7 +70,6 @@
                 </div>
             </div>
         </div>
-
     <!--Plugins-->
     <!--Bootstrap Javascript: jQuery, Popper.js, and Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
